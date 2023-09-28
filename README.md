@@ -4,7 +4,7 @@ Context and date
 
 Description
 
-a juicy brick breaker game
+a juicy brick breaker game with soon to be ghost sprites
 
 
 ## Implementation
@@ -18,6 +18,8 @@ in the future, i will add my own assets
 
 
 ## Future Development
+
+in the future, i will add my own assets like ghost holding the paddel
 
 
 ## Created by 
