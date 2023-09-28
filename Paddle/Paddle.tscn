@@ -26,3 +26,13 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("1")
 
 [node name="Powerups" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(44, 1)
+emission_shape = 1
+emission_sphere_radius = 5.55
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(-44, 1)
+emission_shape = 1
+emission_sphere_radius = 5.55
