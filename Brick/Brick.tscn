@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjvdmnbj44w6x"]
+[gd_scene load_steps=4 format=3 uid="uid://bjvdmnbj44w6x"]
 
 [ext_resource type="Script" path="res://Brick/Brick.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c2taov4opuqag" path="res://Brick/element_red_rectangle_glossy.png" id="2_oyy58"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(90, 30)
@@ -13,6 +14,11 @@ offset_left = -45.0
 offset_top = -15.0
 offset_right = 45.0
 offset_bottom = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-06, -4.76837e-07)
+scale = Vector2(1.40625, 0.9375)
+texture = ExtResource("2_oyy58")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
