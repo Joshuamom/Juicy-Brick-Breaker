@@ -4,10 +4,14 @@ Context and date
 
 Description
 
+a juicy brick breaker game
+
 
 ## Implementation
 
-Which features you included
+kanny.nl puzzle block assets
+
+in the future, i will add my own assets
 
 
 ## References
@@ -16,4 +20,4 @@ Which features you included
 ## Future Development
 
 
-## Created by
+## Created by Joshua Mom
