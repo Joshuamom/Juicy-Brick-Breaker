@@ -4,10 +4,14 @@ Context and date
 
 Description
 
+a juicy brick breaker game with soon to be ghost sprites
+
 
 ## Implementation
 
-Which features you included
+kanny.nl puzzle block assets
+
+in the future, i will add my own assets
 
 
 ## References
@@ -15,5 +19,8 @@ Which features you included
 
 ## Future Development
 
+in the future, i will add my own assets like ghost holding the paddel
 
-## Created by
+
+## Created by 
+Joshua Mom
