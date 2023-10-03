@@ -1,8 +1,19 @@
 extends Control
 
-var indicator_margin = Vector2(25, 25)
-var indicator_index = 25
+
 var Indicator = load("res://UI/Indicator.tscn")
+var indicator_margin = Vector2(25, 15)
+var indicator_index = 25
+var indicator_mod = 0.0
+var indicator_mod_start = 0.0
+var indicator_mod_target = 0.5
+var indicator_scale = Vector2(0.5,0.5)
+var indicator_scale_start = Vector2(0.5,0.5)
+var indicator_scale_target = Vector2(1.5,1.5)
+
+
+var tween
+var tween2
 
 func _ready():
 	update_score()
@@ -10,7 +21,16 @@ func _ready():
 	update_lives()
 	update_fever()
 	
-
+func breathe():
+	indicator_scale = indicator_scale_target if indicator_scale == indicator_scale_start else indicator_scale_start
+	indicator_mod = indicator_mod_target if indicator_mod == indicator_mod_start else indicator_mod_start
+	if tween: tween.kill()
+	tween = get_tree().create_tween().set_parallel(true)
+	for i in $Indicator_Container.get_children():
+		tween.tween_property(i.get_node("Highlight"), "scale", indicator_scale, 0.5)
+		tween.tween_property(i.get_node("Highlight"), "modulate:a", indicator_mod, 0.5)
+	tween.set_parallel(false)
+	tween.tween_callback(self.breathe)
 
 func update_score():
 	$Score.text = "Score: " + str(Global.score)
