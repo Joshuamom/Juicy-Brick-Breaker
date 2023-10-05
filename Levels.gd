@@ -3,7 +3,7 @@ extends Node
 var levels = [
 	{
 		"name":"Level 1",
-		"instructions":"Break all the Bricks",
+		"instructions":"Help the ghost break all the bricks OvO",
 		"background":"",
 		"music":"",
 		"sound_paddle":"",

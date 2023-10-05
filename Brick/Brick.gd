@@ -67,4 +67,3 @@ func die():
 	tween.tween_property($ColorRect, "color:a", 0, time_a)
 	tween.tween_property($ColorRect, "color:s", 0, time_s)
 	tween.tween_property($ColorRect, "color:v", 0, time_v)
-
