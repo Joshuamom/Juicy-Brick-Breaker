@@ -28,18 +28,22 @@ func _input(event):
 		target.x += event.relative.x
 
 func hit(_ball):
+	var paddle = get_node_or_null("/root/Game/paddle")
+	if paddle != null:
+		paddle.play()
 	$paddel/highlight.modulate.a = 1.0
 	if tween:
 		tween.kill()
 	tween = create_tween().set_parallel(true)
 	$paddel/highlight.modulate.a = 1.0
-	tween.tween_property($paddel/highlight, "modulate:a", 0.0, time_highlight)
+	tween.tween_property($paddel/highlight, "modulate:a", 2.0, time_highlight)
 	$paddel/highlight.scale = Vector2(1.5, 1.5)
 	tween2 = create_tween().set_parallel(true)
 	print(tween)
-	#tween2.set_trans(Tween.TRANS_BOUNCE)
-	#tween2.set_ease(Tween.EASE_IN)
-	tween2.tween_property($paddel/hightlight, "scale", Vector2(1.0,1.0), time_highlight_size)#.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
+	tween2.set_trans(Tween.TRANS_BOUNCE)
+	tween2.set_ease(Tween.EASE_IN)
+	tween2.tween_property($paddel/highlight, "scale", Vector2(1.0,1.0), time_highlight_size).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
+	
 
 
 func powerup(payload):

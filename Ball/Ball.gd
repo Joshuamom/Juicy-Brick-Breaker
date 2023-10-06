@@ -16,6 +16,7 @@ var wobble_direction = Vector2.ZERO
 var decay_wobble = 0.15
 var tween
 var distort_effect = 0.0002
+var h_rotate = 1.0
 
 
 
@@ -54,6 +55,9 @@ func _input(event):
 		released = true
 
 func _integrate_forces(state):
+	wobble()
+	distort()
+	comet()
 	if not released:
 		var paddle = get_node_or_null("/root/Game/Paddle_Container/Paddle")
 		if paddle != null:
@@ -72,6 +76,7 @@ func _integrate_forces(state):
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed * speed_multiplier
 	if $ball/highlight.modulate.a > 0:
 		$ball/highlight.modulate.a -= decay
+	distort()
 
 
 func change_size(s):
@@ -81,7 +86,20 @@ func change_size(s):
 func change_speed(s):
 	speed_multiplier = s
 
+func comet():
+	h_rotate = wrapf(h_rotate+0.01, 0, 1)
+	var orb_container = get_node_or_null("/root/Game/orb_container")
+	if orb_container != null:
+		var sprite = $ball.duplicate()
+		sprite.global_position = global_position
+		sprite.modulate.s = 0.6
+		sprite.modulate.h = h_rotate
+		orb_container.add_child(sprite)
+
 func die():
+	var death = get_node_or_null("/root/Game/fail")
+	if death != null:
+		death.play()
 	queue_free()
 	
 func wobble():
@@ -90,10 +108,13 @@ func wobble():
 		var pos = wobble_direction * wobble_amplitude * sin(wobble_period)
 		$ball.position = pos
 		wobble_amplitude -= decay_wobble
-		
-		
+		var direction = Vector2(0.5 + linear_velocity.length() * distort_effect, 0.5 - linear_velocity.length() * distort_effect)
+
 func distort():
 	var direction = Vector2(1 + linear_velocity.length() * distort_effect, 1 - linear_velocity.length() * distort_effect)
 	$ball.rotation = linear_velocity.angle()
 	$ball.scale = direction
+	
+
+
 

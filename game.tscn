@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=18 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
 [ext_resource type="Script" path="res://UI/Camera.gd" id="10_5c3vh"]
+[ext_resource type="AudioStream" uid="uid://3dn417p37kxr" path="res://death.wav" id="11_7hnk7"]
+[ext_resource type="AudioStream" uid="uid://dyue26yv17rce" path="res://Assets/ballS.wav" id="11_d8rtu"]
+[ext_resource type="AudioStream" uid="uid://d2octbr64eycw" path="res://Assets/wall.wav" id="12_8wgaq"]
+[ext_resource type="AudioStream" uid="uid://h4rmsfu6hwg4" path="res://Assets/spooky tune2.mp3" id="13_h4urs"]
+[ext_resource type="Script" path="res://Ball/orb_container.gd" id="15_8polo"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -20,7 +25,11 @@ size = Vector2(1244, 198)
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
 
+[node name="orb_container" type="Node2D" parent="."]
+script = ExtResource("15_8polo")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 1151.0
 offset_bottom = 801.0
 color = Color(0.309804, 0, 0.313726, 0.607843)
@@ -89,5 +98,24 @@ grow_vertical = 2
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("10_5c3vh")
+
+[node name="wall" type="AudioStreamPlayer" parent="."]
+
+[node name="paddle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d8rtu")
+volume_db = -32.212
+
+[node name="brick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8wgaq")
+volume_db = -35.894
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_h4urs")
+volume_db = -32.212
+autoplay = true
+
+[node name="fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7hnk7")
+volume_db = -32.212
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]
