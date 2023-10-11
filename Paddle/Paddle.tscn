@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmwf8wjdir6y5"]
+[gd_scene load_steps=9 format=3 uid="uid://dmwf8wjdir6y5"]
 
 [ext_resource type="Script" path="res://Paddle/Paddle.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dlqb8bab1b8o1" path="res://Assets/IJCG3766.PNG" id="2_11xel"]
 [ext_resource type="Texture2D" uid="uid://dod2nehwsv2q1" path="res://Assets/DOLM7473.PNG" id="3_xfh0e"]
+[ext_resource type="Texture2D" uid="uid://ddh7exsdkpx1" path="res://Assets/eyball.png" id="4_xb4oc"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(100, 20)
+
+[sub_resource type="Curve" id="Curve_ithrt"]
+_data = [Vector2(0, 0.547368), 0.0, 0.0, 0, 0, Vector2(0.462366, 1), 0.0, 0.0, 0, 0, Vector2(0.983871, 0.0631579), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_5utpo"]
+colors = PackedColorArray(0.991164, 0.991164, 0.991164, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_x68ll"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Paddle" type="CharacterBody2D"]
 script = ExtResource("1")
@@ -28,11 +41,26 @@ texture = ExtResource("3_xfh0e")
 [node name="Powerups" type="Node2D" parent="."]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(44, 1)
+position = Vector2(70, 7)
 emission_shape = 1
-emission_sphere_radius = 5.55
+emission_sphere_radius = 15.4
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(-44, 1)
+position = Vector2(-70, 10)
 emission_shape = 1
-emission_sphere_radius = 5.55
+emission_sphere_radius = 21.96
+
+[node name="pump" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+texture = ExtResource("4_xb4oc")
+emission_shape = 2
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 600.0
+scale_amount_curve = SubResource("Curve_ithrt")
+color_ramp = SubResource("Gradient_5utpo")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_x68ll")

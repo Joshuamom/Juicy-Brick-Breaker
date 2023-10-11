@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co3bglydqbaap"
+path="res://.godot/imported/Loyalty Freak Music - Halloween Ghost Party.mp3-b7ce0da2fefe4829ae511d3aa22ee0c3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Loyalty Freak Music - Halloween Ghost Party.mp3"
+dest_files=["res://.godot/imported/Loyalty Freak Music - Halloween Ghost Party.mp3-b7ce0da2fefe4829ae511d3aa22ee0c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,6 +7,7 @@ var accelerate = false
 var decay = 0.04
 var released = true
 
+
 var time_highlight = 0.4
 var time_highlight_size = 0.3
 var wobble_period = 0.0
@@ -115,6 +116,5 @@ func distort():
 	$ball.rotation = linear_velocity.angle()
 	$ball.scale = direction
 	
-
 
 

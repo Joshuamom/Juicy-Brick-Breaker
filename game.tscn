@@ -1,20 +1,39 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=26 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
+[ext_resource type="Shader" path="res://Effects/Background.gdshader" id="2_73nw7"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
+[ext_resource type="Script" path="res://Background.gd" id="3_0lpnh"]
+[ext_resource type="Texture2D" uid="uid://dlmnelpoqla4b" path="res://bg.PNG" id="3_6e5fl"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ci5q3vmuimsfr" path="res://UI/Pause_Menu.tscn" id="5"]
 [ext_resource type="Script" path="res://Wall/Wall.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://do7pdpjxteg8e" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
+[ext_resource type="Shader" path="res://Effects/game.gdshader" id="9_8xpwf"]
 [ext_resource type="Script" path="res://UI/Camera.gd" id="10_5c3vh"]
-[ext_resource type="AudioStream" uid="uid://3dn417p37kxr" path="res://death.wav" id="11_7hnk7"]
-[ext_resource type="AudioStream" uid="uid://dyue26yv17rce" path="res://Assets/ballS.wav" id="11_d8rtu"]
 [ext_resource type="AudioStream" uid="uid://d2octbr64eycw" path="res://Assets/wall.wav" id="12_8wgaq"]
-[ext_resource type="AudioStream" uid="uid://h4rmsfu6hwg4" path="res://Assets/spooky tune2.mp3" id="13_h4urs"]
 [ext_resource type="Script" path="res://Ball/orb_container.gd" id="15_8polo"]
+[ext_resource type="AudioStream" uid="uid://wfadwn4olvgf" path="res://Effects/523088__magnuswaker__energy-bounce-1.wav" id="16_24emx"]
+[ext_resource type="AudioStream" uid="uid://blidbdqa6joeu" path="res://Wall/66876__hihirex__glass_ding.mp3" id="17_j7180"]
+[ext_resource type="AudioStream" uid="uid://co3bglydqbaap" path="res://Assets/Loyalty Freak Music - Halloween Ghost Party.mp3" id="17_ug0cw"]
+[ext_resource type="AudioStream" uid="uid://dtvvltis83mg0" path="res://Wall/278164__thedweebman__8-bit-wrong-2.wav" id="20_qm5pm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vu5et"]
+shader = ExtResource("2_73nw7")
+shader_parameter/TWOPI = 6.28319
+shader_parameter/NUM_EXPLOSIONS = 8.0
+shader_parameter/NUM_PARTICLES = 70.0
+shader_parameter/MOD3 = Vector3(0.1031, 0.11369, 0.13787)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lh8n7"]
+shader = ExtResource("2_73nw7")
+shader_parameter/TWOPI = 6.28319
+shader_parameter/NUM_EXPLOSIONS = 8.0
+shader_parameter/NUM_PARTICLES = 70.0
+shader_parameter/MOD3 = Vector3(0.1031, 0.11369, 0.13787)
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -22,17 +41,43 @@ size = Vector2(200, 1000)
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(1244, 198)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwnrf"]
+shader = ExtResource("9_8xpwf")
+shader_parameter/fireMovement = Vector2(-0.01, -0.5)
+shader_parameter/distortionMovement = Vector2(-0.01, -0.3)
+shader_parameter/normalStrength = 40.0
+shader_parameter/distortionStrength = 0.1
+
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
 
-[node name="orb_container" type="Node2D" parent="."]
-script = ExtResource("15_8polo")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_vu5et")
+use_parent_material = true
 offset_right = 1151.0
 offset_bottom = 801.0
-color = Color(0.309804, 0, 0.313726, 0.607843)
+color = Color(0.309804, 0, 0.313726, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579, 403)
+texture = ExtResource("3_6e5fl")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lh8n7")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 862.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.415686, 0.231373, 0.262745, 0)
+script = ExtResource("3_0lpnh")
+
+[node name="orb_container" type="Node2D" parent="."]
+script = ExtResource("15_8polo")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 
@@ -40,6 +85,9 @@ color = Color(0.309804, 0, 0.313726, 0.607843)
 script = ExtResource("6")
 
 [node name="ColorRect" type="ColorRect" parent="Wall_Container/Wall_Left"]
+offset_left = -188.0
+offset_right = 14.0
+offset_bottom = 818.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Container/Wall_Left"]
 position = Vector2(-90, 400)
@@ -50,6 +98,9 @@ position = Vector2(1152, 2.08165e-12)
 script = ExtResource("6")
 
 [node name="ColorRect" type="ColorRect" parent="Wall_Container/Wall_Right"]
+offset_left = -15.0
+offset_right = 172.0
+offset_bottom = 830.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Container/Wall_Right"]
 position = Vector2(90, 400)
@@ -59,6 +110,9 @@ shape = SubResource("1")
 script = ExtResource("6")
 
 [node name="ColorRect" type="ColorRect" parent="Wall_Container/Wall_Top"]
+offset_top = -108.0
+offset_right = 1144.0
+offset_bottom = 12.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Container/Wall_Top"]
 position = Vector2(522, -91)
@@ -78,6 +132,8 @@ script = ExtResource("3")
 [node name="Powerup_Container" type="Node2D" parent="."]
 
 [node name="Fever" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_jwnrf")
+use_parent_material = true
 script = ExtResource("9")
 
 [node name="Timer" type="Timer" parent="Fever"]
@@ -90,32 +146,30 @@ visible = false
 [node name="Pause_Menu" parent="UI" instance=ExtResource("5")]
 process_mode = 3
 visible = false
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Instructions" parent="UI" instance=ExtResource("8")]
+offset_top = -18.0
+offset_bottom = -18.0
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("10_5c3vh")
 
 [node name="wall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_24emx")
 
 [node name="paddle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_d8rtu")
-volume_db = -32.212
+stream = ExtResource("17_j7180")
 
 [node name="brick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_8wgaq")
-volume_db = -35.894
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_h4urs")
-volume_db = -32.212
+stream = ExtResource("17_ug0cw")
+volume_db = -2.497
 autoplay = true
 
 [node name="fail" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_7hnk7")
-volume_db = -32.212
+stream = ExtResource("20_qm5pm")
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]

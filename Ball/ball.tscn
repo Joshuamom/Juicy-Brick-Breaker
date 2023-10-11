@@ -22,7 +22,6 @@ shape = SubResource("1")
 
 [node name="ball" type="Sprite2D" parent="."]
 position = Vector2(-2.563e-06, 0.999997)
-scale = Vector2(0.488889, 0.488889)
 texture = ExtResource("2_cgb46")
 
 [node name="highlight" type="Sprite2D" parent="ball"]

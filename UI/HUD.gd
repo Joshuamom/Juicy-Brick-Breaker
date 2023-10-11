@@ -10,7 +10,9 @@ var indicator_mod_target = 0.5
 var indicator_scale = Vector2(0.5,0.5)
 var indicator_scale_start = Vector2(0.5,0.5)
 var indicator_scale_target = Vector2(1.5,1.5)
-
+var fever_h = 0.0
+var fever_s = 0.0
+var fever_v = 0.0
 
 var tween
 var tween2
@@ -20,7 +22,10 @@ func _ready():
 	update_time()
 	update_lives()
 	update_fever()
-	
+	fever_h = 0.0
+	fever_s = 0.78
+	fever_v = 0.88
+
 func breathe():
 	indicator_scale = indicator_scale_target if indicator_scale == indicator_scale_start else indicator_scale_start
 	indicator_mod = indicator_mod_target if indicator_mod == indicator_mod_start else indicator_mod_start
@@ -37,6 +42,10 @@ func update_score():
 
 func update_time():
 	$Time.text = "Time: " + str(Global.time)
+	
+func update_fever():
+	$Fever.value = Global.fever
+	var styleBox = $Fever.get("theme_override_styles/fill")
 
 func update_lives():
 	var indicator_pos = Vector2(indicator_margin.x, Global.VP.y - indicator_margin.y)
@@ -47,8 +56,6 @@ func update_lives():
 		indicator.position = Vector2(indicator_pos.x + i*indicator_index, indicator_pos.y)
 		$Indicator_Container.add_child(indicator)
 
-func update_fever():
-	$Fever.value = Global.fever
-
+	
 func _on_Timer_timeout():
 	Global.update_time(-1)

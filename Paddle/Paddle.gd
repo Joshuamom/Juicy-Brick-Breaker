@@ -28,6 +28,10 @@ func _input(event):
 		target.x += event.relative.x
 
 func hit(_ball):
+	var paddle_sound = get_node_or_null("/root/Game/paddle")
+	if paddle_sound != null:
+		paddle_sound.play()
+	$pump.emitting = true
 	var paddle = get_node_or_null("/root/Game/paddle")
 	if paddle != null:
 		paddle.play()
@@ -43,7 +47,7 @@ func hit(_ball):
 	tween2.set_trans(Tween.TRANS_BOUNCE)
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property($paddel/highlight, "scale", Vector2(1.0,1.0), time_highlight_size).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
-	
+
 
 
 func powerup(payload):

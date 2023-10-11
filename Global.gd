@@ -18,16 +18,6 @@ var color_rotate = 0
 var color_rotate_amount = 10
 var color_rotate_index = 0.01
 var color_position = Vector2.ZERO
-var colors = [
-	Color8(224,49,49,255)
-	,Color8(255,146,43,255)
-	,Color8(255,212,59,255)
-	,Color8(148,216,45,255)
-	,Color8(34,139,230,255)
-	,Color8(132,94,247,255)
-	,Color8(190,75,219,255)
-	,Color8(134,142,150,255)
-]
 
 var sway_index = 0
 var sway_period = 0.1
@@ -37,7 +27,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	randomize()
 	VP = get_viewport().size
-	get_tree().get_root().size_changed.connect(_resize)
+	var _signal = get_tree().get_root().connect("size_changed", Callable(self, "_resize"))
 	reset()
 
 func _physics_process(_delta):
@@ -47,7 +37,6 @@ func _physics_process(_delta):
 	else:
 		color_rotate_index = 0.1
 	sway_index += sway_period
-
 	if fever >= 100 and not feverish:
 		fever = 100
 	elif fever > 0:

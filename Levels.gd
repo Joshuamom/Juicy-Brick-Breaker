@@ -3,7 +3,7 @@ extends Node
 var levels = [
 	{
 		"name":"Level 1",
-		"instructions":"Help the ghost break all the bricks OvO",
+		"instructions":"Help the ghost break all the bricks",
 		"background":"",
 		"music":"",
 		"sound_paddle":"",
@@ -38,7 +38,7 @@ var levels = [
 	}
 	,{
 		"name":"Level 2",
-		"instructions":"Keep on brickin'",
+		"instructions":"ew, candy corn",
 		"background":"",
 		"music":"",
 		"sound_paddle":"",
@@ -61,19 +61,19 @@ var levels = [
 			30:"res://Brick/Brick.tscn",
 		},
 		"layout":[
-			[0,100,100,100,100,100,100,0]
-			,[100,90,90,90,90,90,90,100]
-			,[100,80,80,100,80,100,80,100]
-			,[100,70,70,70,70,70,70,100]
-			,[100,60,100,60,60,100,60,100]
-			,[100,50,50,100,100,50,50,100]
-			,[100,40,40,40,40,40,40,100]
-			,[0,100,100,100,100,100,100,0]
+			[0,0,0,40,40,0,0,0]
+			,[0,0,40,40,40,40,0,0]
+			,[0,70,70,70,70,70,70,0]
+			,[0,70,70,70,70,70,70,0]
+			,[70,70,70,70,70,70,70,70]
+			,[50,50,50,50,50,50,50,50]
+			,[50,50,50,50,50,50,50,50]
+			,[0,50,50,50,50,50,50,0]
 		]
 	}
 	,{
-		"name":"Bonus Round",
-		"instructions":"Break them as quickly as you can!",
+		"name":"level 3",
+		"instructions":"Bonus Round!!!",
 		"background":"",
 		"music":"",
 		"sound_paddle":"",
@@ -81,8 +81,8 @@ var levels = [
 		"sound_wall":"",
 		"sound_die":"",
 		"sound_start":"",
-		"multiplier":2.0,
-		"timer":30,
+		"multiplier":1.3,
+		"timer":80,
 		"layout_start":Vector2(205,105),
 		"layout_spacing":Vector2(100,40),
 		"bricks":{
@@ -97,6 +97,34 @@ var levels = [
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
+		]
+	}
+	,{
+		"name":"Bonus Round 2 electric bugaloo",
+		"instructions":"look a spooky skeleton...! kill it",
+		"background":"",
+		"music":"",
+		"sound_paddle":"",
+		"sound_brick":"",
+		"sound_wall":"",
+		"sound_die":"",
+		"sound_start":"",
+		"multiplier":2.0,
+		"timer":100,
+		"layout_start":Vector2(205,105),
+		"layout_spacing":Vector2(100,40),
+		"bricks":{
+			100:"res://Brick/Brick.tscn",
+		},
+		"layout":[
+			 [0,40,40,40,40,40,40,0]
+			,[0,40,40,40,40,40,40,0]
+			,[0,40,30,40,40,30,40,0]
+			,[40,40,30,40,40,30,40,40]
+			,[40,40,40,40,40,40,40,40]
+			,[0,40,40,40,40,40,40,0]
+			,[0,40,30,40,30,40,30,0]
+			,[0,40,30,40,30,40,30,0]
 		]
 	}
 ]

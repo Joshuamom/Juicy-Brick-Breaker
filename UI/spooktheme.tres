@@ -1,0 +1,73 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bmb6hjj4mmbut"]
+
+[ext_resource type="FontFile" uid="uid://gkhbo3grf5gy" path="res://Ball/Sniglet Regular.otf" id="1_ci10h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc40u"]
+bg_color = Color(0.494118, 0.282353, 0.678431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.333333, 0.819608, 0.419608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2tvl"]
+bg_color = Color(0.494118, 0.282353, 0.678431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.631373, 0.988235, 0.670588, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewag0"]
+bg_color = Color(0.494118, 0.282353, 0.678431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.533333, 0.976471, 0.596078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5p0c"]
+bg_color = Color(0.494118, 0.282353, 0.678431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.333333, 0.819608, 0.419608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2cdu"]
+bg_color = Color(0.670588, 0.376471, 0.960784, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.333333, 0.819608, 0.419608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+default_font = ExtResource("1_ci10h")
+Button/colors/font_color = Color(0.854902, 0.533333, 0.866667, 1)
+Button/fonts/font = ExtResource("1_ci10h")
+Button/styles/disabled = SubResource("StyleBoxFlat_lc40u")
+Button/styles/focus = SubResource("StyleBoxFlat_o2tvl")
+Button/styles/hover = SubResource("StyleBoxFlat_ewag0")
+Button/styles/normal = SubResource("StyleBoxFlat_c5p0c")
+Button/styles/pressed = SubResource("StyleBoxFlat_x2cdu")
