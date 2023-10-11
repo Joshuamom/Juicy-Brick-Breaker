@@ -17,7 +17,7 @@ the paddel and ball will shine and do highlight when hit
 
 now a train follows the ball
 
-sound effects made by Audacity and musescore
+sound effects made by Audacity and musescore and free sound archive
 
 juicy effects:
 - added color bricks
@@ -30,6 +30,7 @@ juicy effects:
 - sniglet font made by Mary Fiege: https://www.theleagueofmoveabletype.com/sniglet
 - wall bounce effect
 - screen shake when hitting the paddle and brick
+- add backgrounds
 - sound:
   -wall sound made by Magnus walker: https://freesound.org/people/magnuswaker/sounds/523088/
   - paddle sound made by hi hi rex: https://freesound.org/people/hihirex/sounds/66876/
